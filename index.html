@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Responsive viewport for mobile-friendly design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe Learn - Stay Safe Online</title>
+    <style>
+        /* Basic reset and typography */
+        body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        h1, h2, h3 { color: #004080; }
+
+        /* Navigation bar */
+        header { background: #eef; padding: 10px 20px; }
+        nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+        nav li { margin: 0 10px; }
+        nav a { font-weight: bold; }
+        /* Language selector */
+        .lang-select { margin-left: auto; }
+        .lang-select label { font-size: 0.9em; margin-right: 5px; }
+
+        /* Main content area */
+        main { padding: 20px; }
+
+        /* Threat cards layout */
+        .threat-cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; }
+        .threat-card { background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; width: 300px; padding: 15px; box-sizing: border-box; }
+        .threat-card img { width: 60px; height: 60px; }
+        .threat-card h3 { margin: 10px 0 5px; }
+        .threat-card p { margin: 5px 0; }
+        details { margin-top: 10px; }
+        details summary { cursor: pointer; font-weight: bold; color: #0066cc; }
+        details summary::-webkit-details-marker { display: none; }
+        details p { margin: 5px 0 0; }
+
+        /* Video container for aspect ratio */
+        .video-container { position: relative; width: 100%; max-width: 600px; margin: 20px auto; padding-bottom: 56.25%; /* 16:9 */ }
+        .video-container iframe { position: absolute; width: 100%; height: 100%; border: 0; }
+
+        /* Footer */
+        footer { background: #eef; padding: 10px 20px; text-align: center; font-size: 0.9em; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            nav ul { flex-direction: column; }
+            .threat-cards { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Logo / Home Link -->
+            <div><a href="#"><h1>CyberSafe Learn</h1></a></div>
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Language selector (simulated) -->
+            <div class="lang-select">
+                <label for="language-select">Language:</label>
+                <select id="language-select" onchange="switchLanguage(this.value)" aria-label="Select language">
+                    <option value="en" lang="en">English</option>
+                    <option value="sw" lang="sw">Kiswahili</option>
+                    <option value="fr" lang="fr">Français</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Cybersecurity Threats Section -->
+        <section id="threats">
+            <h2>Common Cybersecurity Threats</h2>
+            <div class="threat-cards">
+                <!-- Phishing card -->
+                <div class="threat-card">
+                    <img src="icons/phishing.svg" alt="Phishing icon">
+                    <h3>Phishing</h3>
+                    <p>Phishing is a scam where attackers trick you into revealing personal info via fake emails or sites.</p>
+                    <details>
+                        <summary>Learn More</summary>
+                        <p>Phishing often uses emails that look legitimate, asking for passwords or personal data. Always verify sender details and never click suspicious links.</p>
+                    </details>
+                </div>
+                <!-- Malware / Ransomware card -->
+                <div class="threat-card">
+                    <img src="icons/malware.svg" alt="Malware icon">
+                    <h3>Malware/Ransomware</h3>
+                    <p>Malware is malicious software that damages or steals data. Ransomware encrypts your files and demands payment for decryption.</p>
+                    <details>
+                        <summary>Learn More</summary>
+                        <p>Keep software updated and use antivirus. Backup data regularly to recover from ransomware without paying the attacker.</p>
+                    </details>
+                </div>
+                <!-- Social Engineering card -->
+                <div class="threat-card">
+                    <img src="icons/social-engineering.svg" alt="Social engineering icon">
+                    <h3>Social Engineering</h3>
+                    <p>Social engineering tricks people into revealing secrets. It relies on human trust (like pretending to be a co-worker).</p>
+                    <details>
+                        <summary>Learn More</summary>
+                        <p>Be cautious if someone pressures you to act quickly or bypass security. Always verify identities before sharing info.</p>
+                    </details>
+                </div>
+                <!-- Password Hygiene card -->
+                <div class="threat-card">
+                    <img src="icons/password.svg" alt="Password hygiene icon">
+                    <h3>Password Hygiene</h3>
+                    <p>Good password hygiene means using strong, unique passwords and changing them regularly to protect accounts.</p>
+                    <details>
+                        <summary>Learn More</summary>
+                        <p>Use a mix of letters, numbers, and symbols. Avoid reusing passwords. A password manager can help keep track of them securely.</p>
+                    </details>
+                </div>
+                <!-- Data Backups card -->
+                <div class="threat-card">
+                    <img src="icons/backup.svg" alt="Data backup icon">
+                    <h3>Data Backups</h3>
+                    <p>Data backups involve copying important information to a secure location so you can restore it if it’s lost or locked.</p>
+                    <details>
+                        <summary>Learn More</summary>
+                        <p>Use external drives or cloud services to back up files. The 3-2-1 rule helps: 3 copies, 2 types of media, 1 off-site backup.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Embedded Cybersecurity Awareness Video -->
+        <section id="video">
+            <h2>Cybersecurity Awareness Video</h2>
+            <div class="video-container">
+                <!-- Example public YouTube video embed -->
+                <iframe src="https://www.youtube.com/embed/9gGzKAbcTPs" title="Cybersecurity awareness video" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact / Footer -->
+    <footer>
+        <p>&copy; 2025 CyberSafe Learn. Designed for cyber awareness education. <a href="mailto:preciouspendo43@gmail.com">Contact us</a>0748371735</p>By:Precious Pendo
+    </footer>
+
+    <!-- Simulated language switching script -->
+    <script>
+        function switchLanguage(lang) {
+            // This is a stub. In a real site, this would load the selected language.
+            // For demonstration, we simply update the HTML lang attribute:
+            document.documentElement.lang = lang;
+            alert("Switched language to: " + lang);
+        }
+    </script>
+</body>
+</html>
